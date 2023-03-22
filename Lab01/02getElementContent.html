@@ -9,8 +9,23 @@
 <body>
     <div id="myDiv"></div>
     <script>
+        // var ele = document.getElementById("myDiv");
+        // ele.innerText = "hello";
+        // ele.style.color = "blue";
+        // // ele.innerHTML += "<h1>gabrielle<h1>";
+        // console.log("ele.innerText");
+        // for (i = 0; i < ele.innerHTML.length; i++) {
+        //     console.log("ele.innerHTML");
+        // }
 
-    </script>    
+        try {
+            var ele = document.getElementById("myDifv");
+            ele.innerText = "hello";
+        } catch (error) {
+            console.log(error.message);
+        }
+
+    </script>
 </body>
 
 </html>
