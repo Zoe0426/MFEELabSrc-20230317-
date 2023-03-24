@@ -23,8 +23,8 @@
 
 
 <body>
-    <input type="text" value="身高(公尺)" id="heigh">
-    <input type="text" value="體重(公斤)" id="weight">
+    <input type="text" value="" placeholder="身高(公尺)" id="heigh">
+    <input type="text" value="" placeholder="體重(公斤)" id="weight">
     <input type="submit" value="計算" id="calculate">
     <div id="output"></div>
     <script>
@@ -57,11 +57,16 @@
                 output.innerHTML = "正常";
             } else if (BMI >= 24 && BMI < 27) {
                 output.innerHTML = "過重";
-            }
+            } else if (BMI >= 27 && BMI < 30) {
+                output.innerHTML = "輕度肥胖";
+            } else if (BMI >= 30 && BMI < 35) {
+                output.innerHTML = "中度肥胖";
+            } else if (BMI >= 35) {
+                output.innerHTML = "重度肥胖";
+            };
+        });
 
-        })
-
-
+// 聖誕樹
     </script>
 </body>
 
