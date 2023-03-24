@@ -1,18 +1,45 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
     <meta charset="UTF-8">
     <title>03swicth.html</title>
 </head>
-<body>   
+
+<body>
     <script>
-        let area = window.prompt("pleae input area no:");
-        switch (area) {
-            case "100": console.log("中正區"); break;
-            case "104": console.log("中山區"); break;
-            case "107": console.log("大安區"); break;
-            default: console.log("other區"); break;
+        // let area = window.prompt("pleae input area no:");
+        // switch (area) {
+        //     case "100": console.log("中正區"); break;
+        //     case "104": console.log("中山區"); break;
+        //     case "107": console.log("大安區"); break;
+        //     default: console.log("other區"); break;
+        // 
+
+        const NEWDAY = new Date();
+        console.log(NEWDAY);
+        const toDay = NEWDAY.getDay();
+        console.log(toDay);
+        let aDay = "";
+        switch (toDay) {
+            case 0: aDay = "weekend";
+
+            case 6: aDay = "weekend";
+                break;
+            case 1: aDay = "weekday";
+
+            case 2: aDay = "weekday";
+
+            case 3: aDay = "weekday";
+
+            case 4: aDay = "weekday";
+
+            case 5: aDay = "weekday";
+                break;
+            default: aDay = "?";
         }
+        console.log(`今天是星期${aDay}`)
     </script>
 </body>
+
 </html>

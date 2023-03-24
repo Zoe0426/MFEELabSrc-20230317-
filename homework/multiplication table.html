@@ -5,34 +5,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>multiplication table</title>
+    <title>JavaScript練習</title>
     <style>
         table {
-            border: 1px solid black;
             border-collapse: collapse;
+            margin: 0 auto;
         }
 
         td {
-            /* background-color: rebeccapurple; */
-            width: 20px;
-            height: 20px;
-            border: 1px solid black;
+            border: 1px solid #333;
         }
     </style>
+
+
 </head>
 
+
+
 <body>
-    <table id="table"></table>
+    <input type="text" value="身高(公尺)" id="heigh">
+    <input type="text" value="體重(公斤)" id="weight">
+    <input type="submit" value="計算" id="calculate">
+    <div id="output"></div>
     <script>
+        // 九九乘法表
+        document.write("<table>");
         for (let i = 1; i < 10; i++) {
-            let ele = document.getElementById("table");
+            document.write("<tr>")
             for (let j = 1; j < 10; j++) {
-                console.log(i + "*" + j + "=" + i * j);
-                // document.write(i + "*" + j + "=" + i * j);
-                ele.innerHTML = `<td>${i + "*" + j + "=" + i * j}</td>`;
+                // console.log(j + "X" + i + "=" + j * i);
+                document.write(`<td>${j}X${i}=${j * i}`);
             }
         }
+        // BMI計算
+        let heigh = document.getElementById("heigh");
+        let weight = document.getElementById("weight");
+        let calculate = document.getElementById("calculate")
+        let output = document.getElementById("output");
+        let BMI = "";
+
+        calculate.addEventListener("click", function () {
+            let resultHeigh = Number(heigh.value) * Number(heigh.value);
+
+            let resultWeight = Number(weight.value);
+            let BMI = resultWeight / resultHeigh;
+            console.log(BMI);
+
+            if (BMI < 18.5) {
+                output.innerHTML = "過輕";
+            } else if (BMI >= 18.5 && BMI < 24) {
+                output.innerHTML = "正常";
+            } else if (BMI >= 24 && BMI < 27) {
+                output.innerHTML = "過重";
+            }
+
+        })
+
+
     </script>
+</body>
+
+</html>
 </body>
 
 </html>

@@ -6,16 +6,19 @@
     <title>02if.html</title>
 </head>
 
-<body>   
+<body>
     <script>
-        let a = 10, b = 20;
+        // let a = 10, b = 20;
 
         //使用window.prompt()方法，取得變數値
+        // let a = parseInt(window.prompt("輸入"));
+        // let b = parseInt(window.prompt("輸入"));20
+        // if (a > b) {
+        //     console.log("a > b");
+        // } else {
+        //     console.log("a < b");
+        // }
 
-        if (a > b)
-            console.log("a > b");
-        else
-            console.log("a < b");
 
 
         // var Transportation = "",
@@ -32,6 +35,18 @@
         //     Transportation = "摩托車";
         // }
         // console.log("台北到高雄坐 " + Transportation);
+
+
+        let a = parseInt(window.prompt("輸入a"));
+        let b = parseInt(window.prompt("輸入b"));
+        let c = parseInt(window.prompt("輸入c"));
+        if (a > b && a > c) {
+            console.log(a);
+        } else if (b > a && b > c) {
+            console.log(b);
+        } else if (c > a && c > b) {
+            console.log(c);
+        }
 
     </script>
 </body>
