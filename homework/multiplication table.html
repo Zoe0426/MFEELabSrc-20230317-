@@ -23,10 +23,31 @@
 
 
 <body>
+    <!-- BMI -->
+    <h2>讓使用者可以輸入自己的體重及身高，根據算出來的BMI值顯示下列訊息</h2>
     <input type="text" value="" placeholder="身高(公尺)" id="heigh">
     <input type="text" value="" placeholder="體重(公斤)" id="weight">
-    <input type="submit" value="計算" id="calculate">
+    <input type="submit" value="計算" id="BMI-calculate">
     <div id="output"></div>
+
+    <!-- 閏年 -->
+    <h2>輸入西元年，判斷是否是閏年</h2>
+    <input type="text" value="" placeholder="西元年" id="year">
+    <input type="submit" value="計算" id="year-calculate">
+    <div id="answer-year"></div>
+
+    <!-- 猜數字遊戲 -->
+    <h2>猜數字遊戲</h2>
+    <h5>請輸入猜測的數字(1~100),輸入0離開遊戲</h5>
+    <input type="submit" value="開始遊戲" id="startGame">
+    <div id="ansewr"></div>
+    <input type="text" value="" placeholder="請輸入數字" id="number1">
+    <input type="submit" value="猜猜看" id="number-calculate">
+
+    <!-- 聖誕樹 -->
+    <h2>聖誕樹</h2>
+    <div id="tree"></div>
+
     <script>
         // 九九乘法表
         document.write("<table>");
@@ -40,7 +61,7 @@
         // BMI計算
         let heigh = document.getElementById("heigh");
         let weight = document.getElementById("weight");
-        let calculate = document.getElementById("calculate")
+        let calculate = document.getElementById("BMI-calculate")
         let output = document.getElementById("output");
         let BMI = "";
 
@@ -66,7 +87,86 @@
             };
         });
 
-// 聖誕樹
+        // 聖誕樹
+        let tree = document.getElementById("tree");
+        let result = "";
+        // row
+        for (let y = 1; y <= 15; y++) {
+            console.log(y);
+            for (let x = 1; x <= y * 2 - 1; x++) {
+                console.log("^");
+
+            }
+
+            for (let s = y; s <= 15 - x; s++) {
+                console.log("&nbsp;");
+            }
+
+        }
+        // *
+
+        // 輸入西元年，判斷是否是閏年
+        let yearInput = document.getElementById("year");
+        let yearCalculate = document.getElementById("year-calculate");
+        let answerYear = document.getElementById("answer-year");
+        // let theYear = new Date();
+        // console.log(theYear);
+        // let nowYear = theYear.getFullYear();
+        // console.log(nowYear);
+        let resultYear = "";
+        yearCalculate.addEventListener("click", function () {
+            let nowYear = Number(yearInput.value)
+            if (nowYear % 400 == 0) {
+                console.log("閏年");
+                answerYear.innerHTML = "閏年";
+            } else if (nowYear % 4 == 0 && nowYear % 100 != 0) {
+                console.log("閏年");
+            } else if (nowYear % 4 != 0) {
+                console.log("平年");
+            } else if (nowYear % 400 != 0 && nowYear % 100 == 0) {
+                console.log("平年");
+            }
+        });
+        // guessNum
+
+        let number1 = document.getElementById("number1");
+        let pressNum = document.getElementById("number-calculate");
+        let ansewr = document.getElementById("ansewr");
+        let startGame = document.getElementById("startGame");
+
+        startGame.addEventListener("click", function () {
+            pressNum.disabled = false;
+            let num = Math.random()
+            let guessNum = Math.floor(num * 100); //取整數
+            console.log(guessNum);
+            let count = 0;
+            const t = setInterval(() => {
+                pressNum.addEventListener("click", function () {
+
+                    let yourNum = Number(number1.value);
+                    if (yourNum > guessNum) {
+                        ansewr.innerHTML = "數字太大!"
+                    } else if (yourNum < guessNum) {
+                        ansewr.innerHTML = "數字太小!"
+                    } else if (yourNum == guessNum) {
+                        ansewr.innerHTML = "恭喜猜中!"
+                        pressNum.disabled = true;
+                    }
+                })
+                count++
+                console.log(count);
+                if (count == 10) {
+                    ansewr.innerHTML = "時間結束!"
+                    clearInterval(t);
+                    pressNum.disabled = true;
+                }
+            }, 1500);
+
+        });
+
+
+
+
     </script>
 </body>
 
