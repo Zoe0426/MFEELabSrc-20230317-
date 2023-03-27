@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>03checkPassword.html</title>
+</head>
+
+<body>
+    <label>Password:</label>
+    <input type="password" id="idPwd" size="6" /><!-- 瀏覽器執行到此標籤會建立一個物件-->
+    <span id="idsp"></span><br />
+    <input type="button" id="idbut" value="checkPassword" onclick="checkPwd();" />
+
+    <script>
+        function checkPwd() {
+            //取得idPwd元素
+            let idPwd = document.getElementById("idPwd");
+
+            //取得idPwd元素值
+            let result = parseInt(idPwd.value);
+            // let length = result.length;
+            console.log(result);
+            // console.log(result);
+            //判斷元素值是否為空白，密碼長度是否大於6
+            if (result !== NaN) {
+                // alert("請輸入密碼!");
+                // console.log(result);
+            } else if (result.length <= 6) {
+                alert("請輸入六位數!");
+            }
+            //如果長度是否大於6，判斷是否包含字母、數字、特殊符號
+
+        }
+    </script>
+</body>
+
+</html>
