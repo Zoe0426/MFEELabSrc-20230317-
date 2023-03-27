@@ -1,20 +1,38 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
     <meta charset="UTF-8">
     <title>02varScope.html</title>
 </head>
+
 <body>
     <script>
-            //廣域(全域)變數
-    
-    
-            //函數宣告定義
-    
-    
-            //呼叫函數
+        //廣域(全域)變數
+
+        // let a = 1;
+        // console.log(a);
+        //函數宣告定義
 
 
+        //呼叫函數
+        // var t1 = 125;
+        // var t1 = 128;
+        var t1 = 129;
+        function test() {
+
+
+            if (true) {
+
+                t1 = 128;
+
+            }
+
+
+        }
+        console.log(t1);
+        test();
     </script>
 </body>
+
 </html>
