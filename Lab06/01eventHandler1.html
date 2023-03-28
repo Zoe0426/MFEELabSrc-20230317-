@@ -1,20 +1,29 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
     <meta charset="UTF-8">
-    <title>01eventHandler1.html</title>    
+    <title>01eventHandler1.html</title>
 </head>
 
 <body>
     <!--HTML屬性事件處理程序-->
-   
+    <input type="button" onclick="sayHi()" value="btn1">
+    <input type="button" value="btn2" id="btn2">
 
     <!-- JavaScript屬性事件處理程序 -->
-    
+
 
     <!-- W3C DOM 事件處理程序 -->
     <script>
-        
+        const sayHi = () => {
+            alert("hi~");
+        }
+
+        document.getElementById("btn2").addEventListener("click", () => {
+            alert("hello~");
+        })
     </script>
 </body>
+
 </html>

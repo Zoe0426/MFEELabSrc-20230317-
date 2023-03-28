@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
     <meta charset="UTF-8">
     <title>05Object.html</title>
 </head>
+
 <body>
     <div id="myDiv"></div>
     <script>
-    
-    
 
-    //for..in
 
-    
-    </script>        
+
+        //for..in
+        let person = { "name": "Gabrielle", "age": 30, "favorite": "nn", "email": "zoe@gmail.com" }
+        for (let data in person) {
+            console.log(`${data}:${person[data]}`);
+        }
+
+    </script>
 </body>
+
 </html>

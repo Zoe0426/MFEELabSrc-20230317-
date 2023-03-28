@@ -11,7 +11,19 @@
     <input type="password" id="idPwd" size="6" /><!-- 瀏覽器執行到此標籤會建立一個物件-->
     <span id="idsp"></span><br />
     <input type="button" id="idbut" value="checkPassword" onclick="checkPwd();" />
-
+    <h2>請設計一個 function，傳入攝氏溫度可以轉成華氏溫度，傳入華氏溫度可以轉成攝氏溫度</h2>
+    <label for="Cdegree">攝氏轉華氏</label>
+    <P>
+        <input type="text" value="" id="Cdegree" placeholder="請輸入攝氏溫度°C">
+    </P>
+    <label for="Fdegree">華氏轉攝氏</label>
+    <P>
+        <input type="text" value="" id="Fdegree" placeholder="請輸入攝氏溫度°F">
+    </P>
+    <h2>讓使用者輸入生日計算幾歲了</h2>
+    <input type="date" value="" id="birthday" value="" oninput="calculateAge()">
+    <input type="button" value="計算年齡">
+    <div id="age"></div>
     <script>
         function checkPwd() {
             //取得idPwd元素
@@ -24,14 +36,27 @@
             // console.log(result);
             //判斷元素值是否為空白，密碼長度是否大於6
             if (result !== NaN) {
-                // alert("請輸入密碼!");
+                alert("請輸入密碼!");
                 // console.log(result);
             } else if (result.length <= 6) {
                 alert("請輸入六位數!");
             }
-            //如果長度是否大於6，判斷是否包含字母、數字、特殊符號
-
+            //如果長度是否大於6，判斷是否包含字母、數字、特殊符
         }
+
+        function calculateAge() {
+            let theDate = document.getElementById("birthday").value;
+            let parts = theDate.split("-");
+            console.log(parts);
+            let birthY = parseInt(parts[0]);
+            let birthM = parseInt(parts[1]);
+            let birthD = parseInt(parts[2]);
+            let result = JSON.stringify(parts[1] + parts[2]);
+            // let bitthMD = parseInt(result);
+            console.log(result);
+        }
+
+
     </script>
 </body>
 

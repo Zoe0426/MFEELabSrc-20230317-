@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
     <meta charset="UTF-8">
     <title>08Destructuring.html</title>
 </head>
+
 <body>
-    <script> 
-    //物件
-    let cars={
-            brand:"audi",
-            "max speed":250,
-            display:function(){
-                return `${this.brand},${this["max speed"]}`;
-            }
-        }
+    <script>
+        //物件
+        // let cars={
+        //         brand:"audi",
+        //         "max speed":250,
+        //         display:function(){
+        //             return `${this.brand},${this["max speed"]}`;
+        //         }
+        //     }
 
 
-        
+        let cars = { 'toyota': 'red', 'suzuki': 'blue' };
+        let { toyota, suzuki } = cars;
+        console.log(toyota);
+        console.log(suzuki);
 
-    //陣列       
-    let myfoods = [["apple", "banana", "grape"], ["pork", "beef"]];
+        let food = ['meat', 'beef', 'pork'];
+        let [food1, food2, food3] = food;
+
+        console.log(food1);
+        console.log(food2);
+        console.log(food3);
+    //陣列
+    // let myfoods = [["apple", "banana", "grape"], ["pork", "beef"]];
 
     </script>
 </body>
+
 </html>

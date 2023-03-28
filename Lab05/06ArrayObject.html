@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
     <meta charset="UTF-8">
     <title>06ArrayObject.html</title>
 </head>
+
 <body>
     <script>
         //Array 物件
+        let fruit = ["apple", "banana", "guava"];
+        // for of 迴圈 取value
+        // for (let data of fruit) {
+        //     console.log(data);
+        // }
+
+        // for (let data in fruit) {
+        //     console.log(data);
+        //     console.log(fruit[data]);
+        // }
+
+        fruit.forEach((items, idx, arr) => {
+            console.log(items, idx, arr);
+        })
+
+        const num = [1, 2, 3, 4, 5];
+        num.forEach((items, idx, arr) => {
+            // console.log(items);
+            // console.log(arr[idx] = items * 10);
+            arr[idx] = items * 10
+        })
+        console.log(num);
 
 
-        
         //let myfoods = [["apple", "banana", "grape"], ["pork", "beef"]];
         // for (let i = 0, maxi = myfoods.length; i < maxi; i++) {
         //     for (let j = 0, maxj = myfoods[i].length; j < maxj; j++) {
@@ -18,7 +41,8 @@
         // }
 
         //Array 方法
-        
+
     </script>
 </body>
+
 </html>
