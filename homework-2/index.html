@@ -4,6 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>03checkPassword.html</title>
+    <style>
+        .years {
+            display: flex;
+            font-size: 24px;
+        }
+
+        #age {
+            width: 26px;
+            text-align: center;
+            background-color: #e5e5e5;
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -11,19 +24,26 @@
     <input type="password" id="idPwd" size="6" /><!-- 瀏覽器執行到此標籤會建立一個物件-->
     <span id="idsp"></span><br />
     <input type="button" id="idbut" value="checkPassword" onclick="checkPwd();" />
-    <h2>請設計一個 function，傳入攝氏溫度可以轉成華氏溫度，傳入華氏溫度可以轉成攝氏溫度</h2>
-    <label for="Cdegree">攝氏轉華氏</label>
-    <P>
-        <input type="text" value="" id="Cdegree" placeholder="請輸入攝氏溫度°C">
-    </P>
-    <label for="Fdegree">華氏轉攝氏</label>
-    <P>
-        <input type="text" value="" id="Fdegree" placeholder="請輸入攝氏溫度°F">
-    </P>
-    <h2>讓使用者輸入生日計算幾歲了</h2>
-    <input type="date" value="" id="birthday" value="" oninput="calculateAge()">
-    <input type="button" value="計算年齡">
-    <div id="age"></div>
+    <!-- 轉溫度 -->
+    <section>
+        <h2>請設計一個 function，傳入攝氏溫度可以轉成華氏溫度，傳入華氏溫度可以轉成攝氏溫度</h2>
+        <label for="Cdegree">攝氏轉華氏</label>
+        <P>
+            <input type="text" value="" id="Cdegree" placeholder="請輸入攝氏溫度°C">
+            <input type="button" value="轉換" onclick="turnDegree()">
+        </P>
+        <label for="Fdegree">華氏轉攝氏</label>
+        <P>
+            <input type="text" value="" id="Fdegree" placeholder="請輸入攝氏溫度°F">
+            <input type="button" value="轉換" onclick="turnDegree()">
+        </P>
+    </section>
+    <!-- 讓使用者輸入生日計算幾歲了 -->
+    <section>
+        <h2>讓使用者輸入生日計算幾歲了</h2>
+        <input type="date" value="" id="birthday" value="" oninput="calculateAge()">
+        <div class="years">我今年<div id="age"></div>歲！</div>
+    </section>
     <script>
         function checkPwd() {
             //取得idPwd元素
@@ -43,17 +63,58 @@
             }
             //如果長度是否大於6，判斷是否包含字母、數字、特殊符
         }
+        // 轉溫度
+        function turnDegree() {
+            let celsiusInput = parseInt(document.getElementById("Cdegree").value);
+            let fahrenheitInput = parseInt(document.getElementById("Fdegree").value);
+            // var resultParagraph = document.getElementById("result");
+            let result;
 
+            if (celsiusInput && fahrenheitInput) {
+                alert("請只輸入一個溫度值")
+            } else if (!celsiusInput && !fahrenheitInput) {
+                alert("請輸入溫度值")
+            } else if (celsiusInput) {
+                //攝氏轉華氏
+                let convertedTemperature = (celsiusInput * 9 / 5) + 32;
+                result = parseInt(convertedTemperature) + "°F";
+                document.getElementById("Cdegree").value = result
+            } else {
+                //華氏轉攝氏
+                var convertedTemperature = (fahrenheitInput - 32) * 5 / 9;
+                result = parseInt(convertedTemperature) + "°C";
+                document.getElementById("Fdegree").value = result
+            }
+
+        }
+
+        // 計算年齡
         function calculateAge() {
+            let ageAnswer = document.getElementById("age");
             let theDate = document.getElementById("birthday").value;
             let parts = theDate.split("-");
-            console.log(parts);
+            // 取生日
             let birthY = parseInt(parts[0]);
             let birthM = parseInt(parts[1]);
             let birthD = parseInt(parts[2]);
-            let result = JSON.stringify(parts[1] + parts[2]);
-            // let bitthMD = parseInt(result);
-            console.log(result);
+            let birthMD = birthM * 100 + birthD;
+            // 取今天
+            let nowday = new Date();
+            let thisY = nowday.getFullYear();
+            let thisM = nowday.getMonth() + 1;
+            let thisD = nowday.getDate();
+            let thisMD = thisM * 100 + thisD;
+            // 判斷是否一歲
+            let age = "";
+            let resultY = thisY - birthY;
+            if (thisY >= birthY && thisMD >= birthMD) {
+                age = resultY;
+            } else if (thisY <= birthY && thisMD < birthMD) {
+                age = "unborn";
+            } else {
+                age = resultY - 1;
+            }
+            ageAnswer.innerHTML = age;
         }
 
 
