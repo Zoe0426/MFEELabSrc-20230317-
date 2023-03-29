@@ -1,16 +1,21 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>02setclock.html</title>
 </head>
-<body> 
-    <img alt="" src="WinImages/0.gif" /><img alt="" src="WinImages/1.gif" />:<img alt="" src="WinImages/2.gif" /><img alt="" src="WinImages/3.gif" />
+
+<body>
+    <img alt="" src="WinImages/0.gif" /><img alt="" src="WinImages/1.gif" />:<img alt="" src="WinImages/2.gif" /><img
+        alt="" src="WinImages/3.gif" />
     <!--
     <img alt="" id="picH1" /><img alt="" id="picH2" />:<img alt="" id="picM1" /><img alt="" id="picM2" />:<img alt="" id="picS1" /><img alt="" id="picS2" />
     -->
+    <input type="button" id="button1" value="Start">
+    <div id="div1">00:00:00</div>
 
-    <script>        
+    <script>
         //建立日期
 
         //取得秒數，分割為兩位數
@@ -18,6 +23,50 @@
 
         //顯示圖片，對應秒數
 
+        let btn = document.getElementById("button1");
+        let clock = document.getElementById("div1");
+
+
+        let now = new Date();
+        let hour = now.getHours();
+        let min = now.getMinutes();
+        let sec = now.getSeconds();
+        let timer = null;
+        btn.addEventListener("click", () => {
+
+            if (btn.value === "Start") {
+                btn.value = "Stop";
+
+                timer = window.setInterval(() => {
+                    const now = new Date();
+                    let hour = now.getHours();
+                    let min = now.getMinutes();
+                    let sec = now.getSeconds();
+
+                    let m1 = parseInt(now.getMinutes() / 10);
+                    let m2 = now.getMinutes() % 10;
+                    let s1 = parseInt(now.getSeconds() / 10);
+                    let s2 = now.getSeconds() % 10;
+                    console.log(m2);
+                    clock.innerText = `${hour}:${m1}${m2}:${s1}${s2}`;
+
+                })
+
+
+
+
+
+
+            } else {
+                btn.value = "Start";
+                window.clearInterval(timer);
+            }
+
+
+        })
+
+
     </script>
 </body>
+
 </html>

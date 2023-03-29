@@ -1,10 +1,12 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>05eventObject.html</title>
-    
+
 </head>
+
 <body>
     <!--HTML屬性事件處理程序-->
     <!-- IE8 -->
@@ -13,8 +15,9 @@
     <input type="button" id="idmouseFx" value="HTML屬性事件(Firefox)" onmousedown="FirefoxmouseDown(event);" />
 
     <!--W3C DOM 事件處理程序-->
-    <input type="button" id="idmouse2" value="JavaScript屬性事件" />    
-    
+    <input type="button" id="idmouse2" value="JavaScript屬性事件" />
+    <input type="button" name="" id="btn1" value="click">
+
     <script>
         //IE8~10 回傳1，edge,chrome,friefox,safari 回傳0 表示使用者按下左鍵
         //IE8~10 回傳4，edge,chrome,friefox,safari 回傳1 表示使用者按下滾輪
@@ -23,7 +26,7 @@
             alert(event.type);
             alert(event.button);
         }
-        
+
         //IE8 回傳1，IE9~10,edge,chrome,friefox,safari 回傳0 表示使用者按下左鍵
         //IE8 回傳4，IE9~10,edge,chrome,friefox,safari 回傳1 表示使用者按下滾輪
         //IE8 回傳2，IE9~10,edge,chrome,friefox,safari 回傳2 表示使用者按下右鍵
@@ -32,14 +35,23 @@
             alert(nsevent.type);
             alert(nsevent.button);
         }
-      
+
 
         //W3C DOM 事件處理程序(IE9以上)
-        //document.getElementById("idmouse2").addEventListener("mousedown", mouseDown);  //事件繫結                               
+        //document.getElementById("idmouse2").addEventListener("mousedown", mouseDown);  //事件繫結
 
 
         //JavaScript屬性事件處理程序(IE8以下)
-        //document.getElementById("idmouse2").onmousedown = mouseDown;        
+        //document.getElementById("idmouse2").onmousedown = mouseDown; 
+
+        document.getElementById("btn1").addEventListener("click", e => {
+
+            console.log(e);
+            console.log(e.type);
+            console.log(e.offsetX);
+
+        })
     </script>
 </body>
+
 </html>
