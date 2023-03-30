@@ -20,10 +20,12 @@
 </head>
 
 <body>
-    <label>Password:</label>
-    <input type="password" id="idPwd" size="6" /><!-- 瀏覽器執行到此標籤會建立一個物件-->
-    <span id="idsp"></span><br />
-    <input type="button" id="idbut" value="checkPassword" onclick="checkPwd();" />
+    <!-- 使用string物件檢查電子郵件中要有 @ . 以及 @ 不能重複 -->
+    <h2>使用string物件檢查電子郵件中要有 @ . 以及 @ 不能重複</h2>
+    <input type="password" value="" id="pwd">
+    <input type="button" value="檢查" onclick="checkPwd()">
+
+
     <!-- 轉溫度 -->
     <section>
         <h2>請設計一個 function，傳入攝氏溫度可以轉成華氏溫度，傳入華氏溫度可以轉成攝氏溫度</h2>
@@ -46,22 +48,22 @@
     </section>
     <script>
         function checkPwd() {
-            //取得idPwd元素
-            let idPwd = document.getElementById("idPwd");
+            // //取得idPwd元素
+            // let idPwd = document.getElementById("idPwd");
 
-            //取得idPwd元素值
-            let result = parseInt(idPwd.value);
-            // let length = result.length;
-            console.log(result);
+            // //取得idPwd元素值
+            // let result = parseInt(idPwd.value);
+            // // let length = result.length;
             // console.log(result);
-            //判斷元素值是否為空白，密碼長度是否大於6
-            if (result !== NaN) {
-                alert("請輸入密碼!");
-                // console.log(result);
-            } else if (result.length <= 6) {
-                alert("請輸入六位數!");
-            }
-            //如果長度是否大於6，判斷是否包含字母、數字、特殊符
+            // // console.log(result);
+            // //判斷元素值是否為空白，密碼長度是否大於6
+            // if (result !== NaN) {
+            //     alert("請輸入密碼!");
+            //     // console.log(result);
+            // } else if (result.length <= 6) {
+            //     alert("請輸入六位數!");
+            // }
+            // //如果長度是否大於6，判斷是否包含字母、數字、特殊符
         }
         // 轉溫度
         function turnDegree() {
@@ -116,9 +118,26 @@
             }
             ageAnswer.innerHTML = age;
         }
-// 使用string物件檢查電子郵件中要有 @ . 以及 @ 不能重複
-//  Regex 至少包含一個大寫字母、小寫字母、數字、符號
+        // 使用string物件檢查電子郵件中要有 @ . 以及 @ 不能重複
+        function checkPwd() {
+            let pwdInput = document.querySelector("#pwd").value;
+            let checkA = pwdInput.lastIndexOf("@");
+            let dot = pwdInput.indexOf(".");
+            console.log(dot);
+            console.log(checkA);
+            console.log(pwdInput);
+            if (checkA < 0) {
+                alert("請輸入@");
+            } else if (checkA === 0 || checkA > 0) {
+                alert("只能輸入一個@");
+            } else if (dot < 0) {
+                alert("請輸入.");
+            }
+        }
 
+
+
+        //  Regex 至少包含一個大寫字母、小寫字母、數字、符號
 
 
     </script>

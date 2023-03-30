@@ -1,31 +1,59 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>03DOMCreateDelete.html</title>
 </head>
 
 <body>
-    <div id="iddiv">div</div>
+
     <input type="button" id="CEle" value="CreateElement">
+    <input type="button" id="REle" value="RemoveElement">
+    <div id="iddiv">div</div>
+
 
     <script>
-        document.querySelector("#CEle").addEventListener("click", CreateElement)
 
+        // document.querySelector("#CEle").addEventListener("click", CreateElement)
+
+        // function CreateElement() {
+        //     let theDIV = document.querySelector("#iddiv");  //取得div物件
+
+        //     let eleP = document.createElement("p");
+        //     let txtP = document.createTextNode("Hello World");
+        //     eleP.appendChild(txtP);
+
+        //     theDIV.appendChild(eleP);
+
+        //     let eleImg = document.createElement("img");
+        //     eleImg.setAttribute("src", "DOM/DOMImage/rabbit-hat.gif");
+
+        //     theDIV.appendChild(eleImg);
+        // }
+        document.querySelector("#CEle").addEventListener("click", CreateElement);
         function CreateElement() {
-            let theDIV = document.querySelector("#iddiv");  //取得div物件
+            let a = document.createElement("a");
+            a.setAttribute("href", "https://www.ispan.com.tw/")
+            let tsxt = document.createTextNode("ispn");
+            a.appendChild(tsxt);
+            let theDIV = document.querySelector("#iddiv");
+            theDIV.appendChild(a);
+            console.log(a);
+        }
 
-            let eleP = document.createElement("p");
-            let txtP = document.createTextNode("Hello World");
-            eleP.appendChild(txtP);
+        document.querySelector("#REle").addEventListener("click", RemoveElement);
 
-            theDIV.appendChild(eleP);
+        function RemoveElement() {
 
-            let eleImg = document.createElement("img");
-            eleImg.setAttribute("src", "DOM/DOMImage/rabbit-hat.gif");
+            const theA = document.querySelector("a");
 
-            theDIV.appendChild(eleImg);
+
+            while (theDiv.hasChildNodes()) {
+                theA.parentNode.removeChild(theA);
+            }
         }
     </script>
 </body>
+
 </html>
