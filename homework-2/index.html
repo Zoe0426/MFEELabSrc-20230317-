@@ -24,7 +24,7 @@
     <h2>使用string物件檢查電子郵件中要有 @ . 以及 @ 不能重複</h2>
     <input type="password" value="" id="pwd">
     <input type="button" value="檢查" onclick="checkPwd()">
-
+    <span class="check-ans"></span>
 
     <!-- 轉溫度 -->
     <section>
@@ -121,20 +121,37 @@
         // 使用string物件檢查電子郵件中要有 @ . 以及 @ 不能重複
         function checkPwd() {
             let pwdInput = document.querySelector("#pwd").value;
-            let checkA = pwdInput.lastIndexOf("@");
-            let dot = pwdInput.indexOf(".");
-            console.log(dot);
-            console.log(checkA);
             console.log(pwdInput);
+            let doubleA = pwdInput.lastIndexOf("@");
+            let checkA = pwdInput.indexOf("@");
+            let dot = pwdInput.indexOf(".");
+            // console.log(doubleA);
+            // console.log(checkA);
+            let ckeckAns = ""
             if (checkA < 0) {
-                alert("請輸入@");
-            } else if (checkA === 0 || checkA > 0) {
-                alert("只能輸入一個@");
+                checkAns = "請輸入@"
+            } else if (checkA !== doubleA) {
+                checkAns = "重複輸入@"
             } else if (dot < 0) {
-                alert("請輸入.");
+                checkAns = "請輸入."
+            } else {
+                checkAns = "輸入正確"
             }
+
+            document.querySelector(".check-ans").innerHTML = checkAns;
+
         }
 
+        // var str = "125345@678@9";
+        // var pos = str.lastIndexOf("5");
+        // console.log(pos);
+
+        // if (pos !== -1 && pos !== str.indexOf("5")) {
+        //     // console.log("5 重複出現了！");
+        //     console.log(str.indexOf("5"))
+        // } else {
+        //     console.log("5 沒有重複出現。");
+        // }
 
 
         //  Regex 至少包含一個大寫字母、小寫字母、數字、符號
