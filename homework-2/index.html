@@ -21,11 +21,19 @@
 
 <body>
     <!-- 使用string物件檢查電子郵件中要有 @ . 以及 @ 不能重複 -->
-    <h2>使用string物件檢查電子郵件中要有 @ . 以及 @ 不能重複</h2>
-    <input type="password" value="" id="pwd">
-    <input type="button" value="檢查" onclick="checkPwd()">
-    <span class="check-ans"></span>
-
+    <section>
+        <h2>使用string物件檢查電子郵件中要有 @ . 以及 @ 不能重複</h2>
+        <input type="password" value="" id="pwd">
+        <input type="button" value="檢查" onclick="checkPwd()">
+        <span class="check-ans"></span>
+    </section>
+    <!-- Lab05/03.checkPassword.html 的密碼檢查 -->
+    <section>
+        <h2>Lab05/03.checkPassword.html 的密碼檢查</h2>
+        <input type="password" value="" id="pwd2">
+        <input type="button" value="檢查" onclick="checkPwd2()">
+        <span class="check-ans2"></span>
+    </section>
     <!-- 轉溫度 -->
     <section>
         <h2>請設計一個 function，傳入攝氏溫度可以轉成華氏溫度，傳入華氏溫度可以轉成攝氏溫度</h2>
@@ -47,7 +55,30 @@
         <div class="years">我今年<div id="age"></div>歲！</div>
     </section>
     <script>
-        function checkPwd() {
+        function checkPwd2() {
+            let pwdInput2 = document.querySelector("#pwd2").value;
+            let pwdLength = pwdInput2.length;
+            let str = "";
+            if (pwdLength === 0) {
+                str = "請輸入密碼";
+            } else if (pwdLength < 6) {
+                str = "請輸入六位數";
+            }
+
+
+            for (let i = 0, max = pwdLength; i < pwdLength; i++) {
+                console.log(i);
+                let en = pwdInput2.charCodeAt([i]);
+                console.log(en);
+                if (en < 97 && en < 122) {
+                    console.log("hello");
+                    str = "請輸入英文字母";
+                } else if (en < 65 && en < 90) {
+                    console.log("hi");
+                    str = "請輸入英文字母";
+                }
+                document.querySelector(".check-ans2").innerHTML = str;
+            }
             // //取得idPwd元素
             // let idPwd = document.getElementById("idPwd");
 
