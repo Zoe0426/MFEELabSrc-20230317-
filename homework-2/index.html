@@ -58,43 +58,48 @@
         function checkPwd2() {
             let pwdInput2 = document.querySelector("#pwd2").value;
             let pwdLength = pwdInput2.length;
-            let str = "";
+            let str = "格式正確";
+
+            //字數檢查
             if (pwdLength === 0) {
                 str = "請輸入密碼";
             } else if (pwdLength < 6) {
                 str = "請輸入六位數";
             }
 
-
-            for (let i = 0, max = pwdLength; i < pwdLength; i++) {
-                console.log(i);
-                let en = pwdInput2.charCodeAt([i]);
-                console.log(en);
-                if (en < 97 && en < 122) {
-                    console.log("hello");
-                    str = "請輸入英文字母";
-                } else if (en < 65 && en < 90) {
-                    console.log("hi");
-                    str = "請輸入英文字母";
+            let isUppercaseLessOne = false;
+            let isLowercaseLessOne = false;
+            let isNumberLessOne = false;
+            let isSpecialCharLessOne = false;
+            for (let i = 0; i < pwdLength; i++) {
+                const en = pwdInput2.charCodeAt(i);
+                // 大寫英文
+                if (en >= 65 && en <= 90) {
+                    isUppercaseLessOne = true;
+                    continue;
                 }
-                document.querySelector(".check-ans2").innerHTML = str;
+                // 小寫英文
+                if (en >= 97 && en <= 122) {
+                    isLowercaseLessOne = true;
+                    continue;
+                }
+                // 數字
+                if (en >= 48 && en <= 57) {
+                    isNumberLessOne = true;
+                    continue;
+                }
+                // 特殊字元（非英文非數字）
+                isSpecialCharLessOne = true;
             }
-            // //取得idPwd元素
-            // let idPwd = document.getElementById("idPwd");
+            if (str == "格式正確") {
+                if (!isUppercaseLessOne) str += "須至少一個大寫英文. ";
+                if (!isLowercaseLessOne) str += "須至少一個小寫英文. ";
+                if (!isNumberLessOne) str += "須至少一個數字. ";
+                if (!isSpecialCharLessOne) str += "須至少一個特殊字元. ";
+            }
+            document.querySelector(".check-ans2").innerHTML = str;
+            console.log(pwdInput2);
 
-            // //取得idPwd元素值
-            // let result = parseInt(idPwd.value);
-            // // let length = result.length;
-            // console.log(result);
-            // // console.log(result);
-            // //判斷元素值是否為空白，密碼長度是否大於6
-            // if (result !== NaN) {
-            //     alert("請輸入密碼!");
-            //     // console.log(result);
-            // } else if (result.length <= 6) {
-            //     alert("請輸入六位數!");
-            // }
-            // //如果長度是否大於6，判斷是否包含字母、數字、特殊符
         }
         // 轉溫度
         function turnDegree() {
