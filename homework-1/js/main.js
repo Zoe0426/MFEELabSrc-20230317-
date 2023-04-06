@@ -180,15 +180,13 @@ function checkPwd2() {
         // 特殊字元（非英文非數字）
         isSpecialCharLessOne = true;
     }
-    if (str == true) {
+    if (str == "輸入正確") {
         if (!isUppercaseLessOne) str = "須至少一個大寫英文. ";
         if (!isLowercaseLessOne) str = "須至少一個小寫英文. ";
         if (!isNumberLessOne) str = "須至少一個數字. ";
         if (!isSpecialCharLessOne) str = "須至少一個特殊字元. ";
     }
     document.querySelector(".check-ans2").innerHTML = str;
-    console.log(pwdInput2);
-
 }
 // 轉溫度
 function turnDegree() {
