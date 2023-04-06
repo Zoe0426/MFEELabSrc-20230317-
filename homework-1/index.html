@@ -90,20 +90,28 @@
         <!-- 聖誕樹 -->
         <section id="christmasTree">
             <h2>聖誕樹</h2>
-            <input type="number" value="" min="10" max="50" id="treeWide">
-            <input type="button" value="畫小樹" id="treePaint" onclick="treePaint()">
-            <div id="tree"></div>
+            <div class="christmasTree">
+                <div>
+                    <input type="number" value="" min="7" max="15" id="treeWide">
+                    <input type="button" value="畫小樹" id="treePaint" onclick="treePaint()">
+                </div>
+                <div id="tree"></div>
+            </div>
         </section>
         <!-- 猜數字遊戲 -->
         <section id="numberGame">
             <h2>猜數字遊戲</h2>
-            <h4>請輸入猜測的數字1~100</h4>
-            <h5>到數計時</h5>
-            <div id="timer"></div>
-            <input type="submit" value="開始遊戲" id="startGame">
-            <div id="ansewr"></div>
-            <input type="number" value="" placeholder="請輸入數字" min="0" max="100" id="number1">
-            <input type="submit" value="猜猜看" id="number-calculate">
+            <div class="numberGame">
+                <div>
+                    <input type="submit" value="開始遊戲" id="startGame">
+                    <div id="timer"></div>
+                </div>
+                <div>
+                    <input type="number" value="" placeholder="請輸入數字1~100" min="0" max="100" id="number1">
+                    <input type="submit" value="猜猜看" id="number-calculate">
+                    <div id="ansewr"></div>
+                </div>
+            </div>
         </section>
         <!-- 閏年 -->
         <section id="leapYear">

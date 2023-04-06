@@ -2,15 +2,10 @@ html {
     scroll-padding-top: 85px;
 }
 
-
 /* nav */
-
-
 nav h1 {
     color: tomato;
 }
-
-
 
 .navbar-nav a {
     width: 100px;
@@ -56,7 +51,26 @@ input:focus {
 
 #BMI {
     margin-top: 80px;
+}
 
+.christmasTree {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.numberGame {
+    display: flex;
+    justify-content: space-between;
+}
+
+#timer,
+#ansewr {
+    font-size: 80px;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 table {

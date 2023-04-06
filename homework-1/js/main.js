@@ -43,11 +43,11 @@ function treePaint() {
     let tree = document.getElementById("tree");
     let leaves = parseInt(document.querySelector("#treeWide").value);
     console.log(leaves);
-    let trunk = 2;
+    let trunk = leaves / 3;
 
     let treeWidth = leaves * 2 + 1;
     let treeHeigh = leaves + trunk;
-
+    tree.innerHTML = "";
     for (let y = 0; y <= treeHeigh; y++) {
         for (let x = 0; x < treeWidth; x++) {
             // console.log(x);
@@ -135,6 +135,7 @@ startGame.addEventListener("click", function () {
         timer.innerText = number
         if (count == 16) {
             timer.innerHTML = "時間結束!"
+            ansewr.innerHTML = "";
             clearInterval(t);
             pressNum.disabled = true;
         }
