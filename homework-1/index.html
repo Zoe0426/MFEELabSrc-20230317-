@@ -6,15 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript練習</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
 
 </head>
 
 
 
 <body>
-    <header class="header">
-        <div class="logo">
+    <!-- <header class="header"> -->
+    <!-- <div class="logo">
             <h1>JavaScript小作業</h1>
         </div>
         <nav class="navbar">
@@ -23,12 +24,62 @@
                 <li><a href="#christmasTree">聖誕樹</a></li>
                 <li><a href="#numberGame">猜數字</a></li>
                 <li><a href="#leapYear">閏年判斷</a></li>
+                <li><a href="#email">email檢查</a></li>
+                <li><a href="#code">密碼檢查</a></li>
+                <li><a href="#degree">溫度轉換</a></li>
+                <li><a href="#birth">生日計算</a></li>
+                <li><a href="#Regex">Regex</a></li>
                 <li><a href="#multiplicationTable">九九乘法表</a></li>
             </ul>
-        </nav>
-    </header>
+        </nav> -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-white">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <h1>JavaScript小作業</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#BMI">BMI計算</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#christmasTree">聖誕樹</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#numberGame">猜數字</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#leapYear">閏年判斷</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#email">email檢查</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#code">密碼檢查</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#degree">溫度轉換</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#birth">生日計算</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Regex">Regex</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#multiplicationTable">九九乘法表</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- </header> -->
     <!-- BMI -->
-    <div class="wrap">
+    <div class="container">
         <section id="BMI">
             <h2>讓使用者可以輸入自己的體重及身高，根據算出來的BMI值顯示下列訊息</h2>
             <input type="text" value="" placeholder="身高(公分)" id="heigh">
@@ -39,6 +90,8 @@
         <!-- 聖誕樹 -->
         <section id="christmasTree">
             <h2>聖誕樹</h2>
+            <input type="number" value="" min="10" max="50" id="treeWide">
+            <input type="button" value="畫小樹" id="treePaint" onclick="treePaint()">
             <div id="tree"></div>
         </section>
         <!-- 猜數字遊戲 -->
@@ -59,13 +112,55 @@
             <input type="submit" value="是否為閏年" id="year-calculate">
             <div id="answer-year"></div>
         </section>
+        <!-- 使用string物件檢查電子郵件中要有 @ . 以及 @ 不能重複 -->
+        <section id="email">
+            <h2>使用string物件檢查電子郵件中要有 @ . 以及 @ 不能重複</h2>
+            <input type="password" value="" id="pwd">
+            <input type="button" value="檢查" onclick="checkPwd()">
+            <span class="check-ans"></span>
+        </section>
+        <!-- Lab05/03.checkPassword.html 的密碼檢查 -->
+        <section id="code">
+            <h2>Lab05/03.checkPassword.html 的密碼檢查</h2>
+            <input type="password" value="" id="pwd2">
+            <input type="button" value="檢查" onclick="checkPwd2()">
+            <span class="check-ans2"></span>
+        </section>
+        <!-- 轉溫度 -->
+        <section id="degree">
+            <h2>請設計一個 function，傳入攝氏溫度可以轉成華氏溫度，傳入華氏溫度可以轉成攝氏溫度</h2>
+            <label for="Cdegree">攝氏轉華氏</label>
+            <P>
+                <input type="text" value="" id="Cdegree" placeholder="請輸入攝氏溫度°C">
+                <input type="button" value="轉換" onclick="turnDegree()">
+            </P>
+            <label for="Fdegree">華氏轉攝氏</label>
+            <P>
+                <input type="text" value="" id="Fdegree" placeholder="請輸入攝氏溫度°F">
+                <input type="button" value="轉換" onclick="turnDegree()">
+            </P>
+        </section>
+        <!-- 讓使用者輸入生日計算幾歲了 -->
+        <section id="birth">
+            <h2>讓使用者輸入生日計算幾歲了</h2>
+            <input type="date" value="" id="birthday" value="" oninput="calculateAge()">
+            <div id="age"></div>
+        </section>
+        <!-- Regex 至少包含一個大寫字母、小寫字母、數字、符號 -->
+        <section id="Regex">
+            <h2>Regex 至少包含一個大寫字母、小寫字母、數字、符號</h2>
+            <input type="password" value="" id="regex">
+            <input type="button" value="檢查" onclick="validatePassword()">
+            <span class="check-regex"></span>
+        </section>
         <!-- 九九乘法表 -->
         <div id="multiplicationTable">
             <h2>九九乘法表</h2>
             <table id="table"></table>
         </div>
     </div>
-    <script src="main.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>

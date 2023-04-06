@@ -11,9 +11,6 @@
         }
 
         #age {
-            width: 26px;
-            text-align: center;
-            background-color: #e5e5e5;
             color: red;
         }
     </style>
@@ -52,7 +49,8 @@
     <section>
         <h2>讓使用者輸入生日計算幾歲了</h2>
         <input type="date" value="" id="birthday" value="" oninput="calculateAge()">
-        <div class="years">我今年<div id="age"></div>歲！</div>
+        <div id="age"></div>
+        </div>
     </section>
     <!-- Regex 至少包含一個大寫字母、小寫字母、數字、符號 -->
     <section>
@@ -65,7 +63,7 @@
         function checkPwd2() {
             let pwdInput2 = document.querySelector("#pwd2").value;
             let pwdLength = pwdInput2.length;
-            let str = "格式正確";
+            let str = "輸入正確";
 
             //字數檢查
             if (pwdLength === 0) {
@@ -98,11 +96,11 @@
                 // 特殊字元（非英文非數字）
                 isSpecialCharLessOne = true;
             }
-            if (str == "格式正確") {
-                if (!isUppercaseLessOne) str += "須至少一個大寫英文. ";
-                if (!isLowercaseLessOne) str += "須至少一個小寫英文. ";
-                if (!isNumberLessOne) str += "須至少一個數字. ";
-                if (!isSpecialCharLessOne) str += "須至少一個特殊字元. ";
+            if (str == true) {
+                if (!isUppercaseLessOne) str = "須至少一個大寫英文. ";
+                if (!isLowercaseLessOne) str = "須至少一個小寫英文. ";
+                if (!isNumberLessOne) str = "須至少一個數字. ";
+                if (!isSpecialCharLessOne) str = "須至少一個特殊字元. ";
             }
             document.querySelector(".check-ans2").innerHTML = str;
             console.log(pwdInput2);
@@ -153,11 +151,11 @@
             let age = "";
             let resultY = thisY - birthY;
             if (thisY >= birthY && thisMD >= birthMD) {
-                age = resultY;
+                age = "我今年" + resultY + "歲";
             } else if (thisY <= birthY && thisMD < birthMD) {
-                age = "unborn";
+                age = "我今年還沒出生唷~";
             } else {
-                age = resultY - 1;
+                age = "我今年" + resultY - 1 + "歲";
             }
             ageAnswer.innerHTML = age;
         }
@@ -181,19 +179,22 @@
         }
 
         //  Regex 至少包含一個大寫字母、小寫字母、數字、符號
-        function validatePassword(password) {
+        function validatePassword() {
             let regexInput = document.querySelector("#regex").value;
             let passwordLength = regexInput.length;
-            console.log(passwordLength);
+            let str = "";
+            console.log(regexInput);
             // if (passwordLength < 8) {
             //     console.log("false");
             //     return false;
             // }
-            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
-            if (!regex) {
-                console.log("false");
+            let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
+            if (regex.test(regexInput) === true) {
+                str = "輸入正確";
+            } else {
+                str = "輸入錯誤";
             }
-            return regex.test(password);
+            document.querySelector(".check-regex").innerHTML = str;
         }
 
 
