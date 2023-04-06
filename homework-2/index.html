@@ -54,6 +54,13 @@
         <input type="date" value="" id="birthday" value="" oninput="calculateAge()">
         <div class="years">我今年<div id="age"></div>歲！</div>
     </section>
+    <!-- Regex 至少包含一個大寫字母、小寫字母、數字、符號 -->
+    <section>
+        <h2>Regex 至少包含一個大寫字母、小寫字母、數字、符號</h2>
+        <input type="password" value="" id="regex">
+        <input type="button" value="檢查" onclick="validatePassword()">
+        <span class="check-regex"></span>
+    </section>
     <script>
         function checkPwd2() {
             let pwdInput2 = document.querySelector("#pwd2").value;
@@ -174,6 +181,20 @@
         }
 
         //  Regex 至少包含一個大寫字母、小寫字母、數字、符號
+        function validatePassword(password) {
+            let regexInput = document.querySelector("#regex").value;
+            let passwordLength = regexInput.length;
+            console.log(passwordLength);
+            // if (passwordLength < 8) {
+            //     console.log("false");
+            //     return false;
+            // }
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
+            if (!regex) {
+                console.log("false");
+            }
+            return regex.test(password);
+        }
 
 
     </script>
